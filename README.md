@@ -1,133 +1,146 @@
-# Flare Dating App - Backend
+# Flare Dating App - Backend & Frontend
 
-**Flare** is a dating app designed to help people connect based on their interests and preferences. This repository contains the backend application built using Node.js and Express.
+**Flare** is een dating-app ontworpen om mensen te helpen verbinden op basis van hun interesses en voorkeuren. Deze repository bevat zowel de backend- als de frontend-applicatie, gebouwd met Node.js, Express en React Native.
 
-## Table of Contents
+## Inhoudsopgave
 
-- [Flare Dating App - Backend](#flare-dating-app---backend)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Technologies](#technologies)
-  - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-    - [Steps to Install](#steps-to-install)
-    - [Running the Application](#running-the-application)
-    - [API Endpoints](#api-endpoints)
-      - [Authentication](#authentication)
-      - [User Management](#user-management)
-      - [File Uploads](#file-uploads)
-      - [Database Setup](#database-setup)
-    - [License](#license)
+- [Flare Dating App - Backend \& Frontend](#flare-dating-app---backend--frontend)
+  - [Inhoudsopgave](#inhoudsopgave)
+  - [Kenmerken](#kenmerken)
+  - [Technologieën](#technologieën)
+  - [Installatie](#installatie)
+    - [Vereisten](#vereisten)
+    - [Stappen om te installeren](#stappen-om-te-installeren)
+    - [De applicatie uitvoeren](#de-applicatie-uitvoeren)
+      - [Backend](#backend)
+      - [Frontend](#frontend)
+    - [API-eindpunten](#api-eindpunten)
+      - [Authenticatie](#authenticatie)
+      - [Gebruikersbeheer](#gebruikersbeheer)
+      - [Bestandsuploads](#bestandsuploads)
+      - [Database-instellingen](#database-instellingen)
+    - [Licentie](#licentie)
     - [Contact](#contact)
+    - [Opmerking](#opmerking)
     - [Screenshots](#screenshots)
 
-## Features
+## Kenmerken
 
-- User authentication (registration and login)
-- User profile management
-- Secure password storage using bcrypt
-- JWT-based session management
-- File uploads for user images
-- CORS support for frontend integration
+- Gebruikersauthenticatie (registratie en inloggen)
+- Beheer van gebruikersprofielen
+- Veilige wachtwoordopslag met bcrypt
+- JWT-gebaseerd sessiebeheer
+- Bestandsuploads voor gebruikersafbeeldingen
+- CORS-ondersteuning voor frontend-integratie
 
-## Technologies
+## Technologieën
 
-- **Node.js** - JavaScript runtime for building scalable network applications
-- **Express** - Fast, unopinionated, minimalist web framework for Node.js
-- **Mongoose** - ODM (Object Data Modeling) library for MongoDB and Node.js
-- **Bcrypt** - Library to help you hash passwords
-- **JWT (JSON Web Tokens)** - For secure user authentication
-- **Multer** - Middleware for handling multipart/form-data, used for file uploads
+- **Node.js** - JavaScript-runtime voor het bouwen van schaalbare netwerkaansluitingen
+- **Express** - Snelle, ongeopinionneerde, minimalistische webframework voor Node.js
+- **Mongoose** - ODM (Object Data Modeling) bibliotheek voor MongoDB en Node.js
+- **Bcrypt** - Bibliotheek om wachtwoorden te hash'en
+- **JWT (JSON Web Tokens)** - Voor veilige gebruikersauthenticatie
+- **Multer** - Middleware voor het verwerken van multipart/form-data, gebruikt voor bestandsuploads
+- **React Native** - Framework voor het bouwen van mobiele applicaties
 
-## Installation
+## Installatie
 
-### Prerequisites
+### Vereisten
 
-Make sure you have the following installed:
+Zorg ervoor dat je het volgende hebt geïnstalleerd:
 
-- [Node.js](https://nodejs.org/en/) (version 12 or higher)
-- [MongoDB](https://www.mongodb.com/) (either locally or using a cloud service)
+- [Node.js](https://nodejs.org/en/) (versie 12 of hoger)
+- [MongoDB](https://www.mongodb.com/) (lokaal of via een cloudservice)
+- [React Native](https://reactnative.dev/docs/environment-setup) (volg de instructies voor jouw platform)
 
-### Steps to Install
+### Stappen om te installeren
 
-1. Clone the repository:
+1. Kloneer de repository:
    ```bash
-   git clone https://github.com/yourusername/flare-backend.git
-   cd flare-backend
+   git clone https://github.com/yourusername/flare-dating.git
+   cd flare-dating
    ```
 
-2. Install the required dependencies:
+2. Installeer de vereiste afhankelijkheden:
    ```bash
    npm install
    ```
 
-3. Create a .env file in the root directory and set your environment variables:
+3. Maak een .env-bestand in de hoofdmap en stel je omgevingsvariabelen in:
    ```bash
    PORT=5000
    MONGODB_URI=mongodb://localhost:27017/flare
    JWT_SECRET=your_jwt_secret
    ```
 
-### Running the Application
-To start the backend server, use the following command:
+### De applicatie uitvoeren
+
+#### Backend
+Navigeer naar de backend-map en start de backend-server met de volgende opdrachten:
 
 ```bash
-node index.js
+cd backend
+npm start
 ```
 
-or if you're using nodemon for development:
+#### Frontend
+Navigeer naar de frontend-map en start de frontend-applicatie met de volgende opdrachten:
+
 ```bash
-npx nodemon index.js
+cd frontend
+npm start
 ```
-The server will start running on the specified port (default is 5000).
 
-### API Endpoints
-#### Authentication
-- POST `/api/auth/register` - Register a new user
-- POST `/api/auth/login` - Authenticate user and return a JWT
+### API-eindpunten
+#### Authenticatie
+- POST `/api/auth/register` - Registreer een nieuwe gebruiker
+- POST `/api/auth/login` - Authenticeer gebruiker en retourneer een JWT
 
-#### User Management
-- GET `/api/users/:id` - Get user profile by ID
-- PUT `/api/users/:id` - Update user profile
-- DELETE `/api/users/:id` - Delete user account
+#### Gebruikersbeheer
+- GET `/api/users/:id` - Verkrijg gebruikersprofiel op ID
+- PUT `/api/users/:id` - Werk gebruikersprofiel bij
+- DELETE `/api/users/:id` - Verwijder gebruikersaccount
 
-#### File Uploads
-- POST `/api/upload` - Upload a file (e.g., user images)
+#### Bestandsuploads
+- POST `/api/upload` - Upload een bestand (bijv. gebruikersafbeeldingen)
 
-#### Database Setup
-The application uses MongoDB for data storage. Ensure that your MongoDB service is running and accessible. Adjust the MONGODB_URI variable in the .env file to connect to your database.
+#### Database-instellingen
+De applicatie maakt gebruik van MongoDB voor gegevensopslag. Zorg ervoor dat je MongoDB-service draait en toegankelijk is. Pas de MONGODB_URI-variabele in het .env-bestand aan om verbinding te maken met je database.
 
-### License
-This project is licensed under the ISC License. See the LICENSE file for details.
+### Licentie
+Dit project is gelicentieerd onder de ISC-licentie. Zie het LICENSE-bestand voor meer details.
 
 ### Contact
-For any inquiries or contributions, feel free to reach out:
+Voor vragen of bijdragen kun je contact opnemen:
 
-Email: contact@rubixstudios.nl
+E-mail: contact@rubixstudios.nl
+
+### Opmerking
+Dit project is gemaakt voor de lol in één dag, om te zien hoe eenvoudig het is om een dating-app te maken. De frontend is relatief eenvoudig te bouwen, net als de backend, maar om met alle aspecten rekening te houden, ben je wel wat langer bezig.
 
 ### Screenshots
 
-Here are some screenshots of the Flare Dating App:
+Hier zijn enkele screenshots van de Flare Dating App:
 
-- **Login Page:**  
-  ![Login Page](https://i.gyazo.com/b273ca7982ff62faa75e474c80777fa4.png)
+- **Login Pagina:**  
+  ![Login Pagina](https://i.gyazo.com/b273ca7982ff62faa75e474c80777fa4.png)
   
-- **Register Page:**  
-  ![Register Page](https://i.gyazo.com/9d5fe7e9d1f6d5495f20587250e28c45.png)
+- **Registratie Pagina:**  
+  ![Registratie Pagina](https://i.gyazo.com/9d5fe7e9d1f6d5495f20587250e28c45.png)
   
-- **Forgot Password:**  
-  ![Forgot Password](https://i.gyazo.com/b5ee1f52cb651876d132ff2e394f32f7.png)
+- **Wachtwoord Vergeten:**  
+  ![Wachtwoord Vergeten](https://i.gyazo.com/b5ee1f52cb651876d132ff2e394f32f7.png)
   
-- **Swipe Cards:**  
-  ![Swipe Cards](https://i.gyazo.com/c51729dc42e3549fa1fae9600d8723ed.png)
+- **Swipe Kaarten:**  
+  ![Swipe Kaarten](https://i.gyazo.com/c51729dc42e3549fa1fae9600d8723ed.png)
   
-- **Messages:**  
-  ![Messages](https://i.gyazo.com/391c058c5ef291e67a6959f2cf5838f0.png)
+- **Berichten:**  
+  ![Berichten](https://i.gyazo.com/391c058c5ef291e67a6959f2cf5838f0.png)
   
-- **Profile:**  
-  ![Profile](https://i.gyazo.com/4a1289dfd49f6ad991f46defad395a79.png)
+- **Profiel:**  
+  ![Profiel](https://i.gyazo.com/4a1289dfd49f6ad991f46defad395a79.png)
   
-- **Account Settings and Premium Settings:**  
-  ![Account Settings](https://i.gyazo.com/c3ae3919d3429e4ee43277f96acae131.png)
+- **Accountinstellingen en Premium instellingen:**  
+  ![Accountinstellingen](https://i.gyazo.com/c3ae3919d3429e4ee43277f96acae131.png)
 
-> **Note:** Many features are not fully implemented yet; the design is mostly built. You can register and log in, as well as like and dislike profiles, but there are limited functionalities available at this time.
+> **Opmerking:** Veel functies zijn nog niet volledig geïmplementeerd; het ontwerp is grotendeels gebouwd. Je kunt registreren en inloggen, evenals profielen leuk vinden en niet leuk vinden, maar er zijn op dit moment beperkte functionaliteiten beschikbaar.
